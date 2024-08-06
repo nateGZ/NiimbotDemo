@@ -1,0 +1,88 @@
+﻿<Window x:Class="JCSDKExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JCSDKExample"
+        mc:Ignorable="d"
+        Title="JCSDKC#Demo" Height="500" Width="820" MaxWidth="820" MaxHeight="500" MinWidth="820" MinHeight="500" ResizeMode="NoResize" Closing="Window_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="93*"/>
+            <ColumnDefinition Width="706*"/>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox HorizontalAlignment="Left" Height="150" Header="Printer settings" Margin="10,1,0,0" VerticalAlignment="Top" Width="780" Grid.ColumnSpan="2">
+            <Grid Margin="0,0,5,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="143*" />
+                    <ColumnDefinition Width="174*"/>
+                    <ColumnDefinition Width="446*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Button x:Name="GetAllPrintersBTN" Grid.Row="0" Grid.Column="0" Content="Find a printer" HorizontalAlignment="Left" Margin="0,0,0,0" Width="120" Click="GetAllPrintersBTN_Click" RenderTransformOrigin="-0.027,0.579" FontSize="18" Height="30"/>
+                <ComboBox x:Name="SelectPrinterCB" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="230" Height="30" SelectionChanged="SelectPrinterCB_SelectionChanged" SelectedIndex="0" FontSize="18" Grid.ColumnSpan="2"/>
+                <Label Content="WIFI name：" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="0,1,0,1" Height="30" Width="120" FontSize="18" />
+                <Label Content="WIFI password：" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="0,1,0,1" Height="30" Width="138" FontSize="18" />
+                <TextBox Name="wifiName" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="155" Height="30" FontSize="18"/>
+                <TextBox Name="wifiPassWord" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="155" Height="30" FontSize="18"/>
+                <Button Name="configureWifi" Content="Configure wifi network" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,31,0,0" RenderTransformOrigin="0.5,0.5" Width="219" Height="30" FontSize="18" Click="configureWifi_Click"/>
+                <Button Content="Disconnect" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Click="DisconnectBTN_Click" Height="30" FontSize="18"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Print Settings" Margin="22,160,14,0" VerticalAlignment="Top" Width="780" Height="94" Grid.ColumnSpan="3">
+            <Grid Margin="0,0,5,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="82*" />
+                    <ColumnDefinition Width="153*"/>
+                    <ColumnDefinition Width="82*" />
+                    <ColumnDefinition Width="449*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Number of copies to print" VerticalAlignment="Center" FontSize="18"/>
+                <TextBox x:Name="PrintPageTextBox" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Height="30" Margin="0,0,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Center" Width="120" TextChanged="PrintCout_TextChanged" FontSize="18"/>
+                <TextBlock HorizontalAlignment="Center" Grid.Row="0" Grid.Column="2" Margin="0,0,0,0" TextWrapping="Wrap" Text="Print density" VerticalAlignment="Center" FontSize="18"/>
+                <ComboBox x:Name="PrintDensityCB" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="120" Height="30" SelectionChanged="PrintDensityCB_SelectionChanged" AlternationCount="1" FontSize="18"/>
+                <TextBlock HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" Margin="0,0,0,0" TextWrapping="Wrap" Text="Paper type" VerticalAlignment="Center" RenderTransformOrigin="0.479,3.4" FontSize="18"/>
+                <ComboBox x:Name="LabelTypeCB" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="120" Height="30" SelectionChanged="LabelTypeCB_SelectionChanged" AlternationCount="1" FontSize="18"/>
+                <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Print mode" VerticalAlignment="Center" RenderTransformOrigin="0.479,3.4" FontSize="18"/>
+                <ComboBox x:Name="PrintModeCB" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="120" Height="30" SelectionChanged="PrintModeCB_SelectionChanged" FontSize="18"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox HorizontalAlignment="Left" Height="100" Header="Picture printing" Margin="10,270,0,0" VerticalAlignment="Top" Width="780" Grid.ColumnSpan="2">
+            <Grid Margin="0,0,5,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="319*" />
+                    <ColumnDefinition Width="447*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ComboBox x:Name="SelectPrintImageCB" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="296" SelectionChanged="SelectPrintImageCB_SelectionChanged" Height="30" FontSize="18"/>
+                <Button Content="Select a document" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="253" Height="30" Click="RefreshImagesDataBTN_Click" FontSize="18"/>
+                <Button Content="Print" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="120" Height="30" Click="Print_Click" FontSize="18"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox HorizontalAlignment="Left" Height="60" Header="Custom drawing" Margin="10,380,0,0" VerticalAlignment="Top" Width="780" Grid.ColumnSpan="2">
+            <Button Content="Custom printing" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="CustomDrawBTN_Click" FontSize="18"/>
+
+        </GroupBox>
+        <GroupBox HorizontalAlignment="Left" Height="60" Header="Custom drawing" Margin="10,380,0,0" VerticalAlignment="Top" Width="780" Grid.ColumnSpan="2">
+            <Button Content="Print Text" HorizontalAlignment="right" Margin="10,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click" FontSize="18"/>
+
+        </GroupBox>
+        <GroupBox HorizontalAlignment="Left" Height="60" Header="Custom drawing" Margin="10,380,0,0" VerticalAlignment="Top" Width="780" Grid.ColumnSpan="2">
+            <Button Content="DrawText" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_1" FontSize="18"/>
+
+        </GroupBox>
+    </Grid>
+</Window>

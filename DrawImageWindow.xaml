@@ -1,0 +1,27 @@
+﻿<Window x:Class="JCSDKExample.DrawImageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JCSDKExample"
+        mc:Ignorable="d"
+        Title="DrawImageWindow" Height="450" Width="800" MaxWidth="800" MaxHeight="450" MinWidth="800" MinHeight="450" ResizeMode="NoResize">
+    <Grid>
+        <Button Content="Print" HorizontalAlignment="Left" Margin="114,329,0,0" VerticalAlignment="Top" Width="75" Click="Print_Click"/>
+        <Label Content="Custom image drawing(can only print drawn elements within the set height)" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.525,-0.4" Width="784"/>
+        <Button Content="draw text" HorizontalAlignment="Left" Margin="85,110,0,0" VerticalAlignment="Top" Width="129" Click="Draw_Label_Click"/>
+        <Button Content="Draw 1D code" HorizontalAlignment="Left" Margin="85,145,0,0" VerticalAlignment="Top" Width="129" Click="Draw_BarCode_Click"/>
+        <Button Content="Draw QR code" HorizontalAlignment="Left" Margin="85,179,0,0" VerticalAlignment="Top" Width="129" Click="Draw_QrCode_Click"/>
+        <Button Content="draw lines" HorizontalAlignment="Left" Margin="85,214,0,0" VerticalAlignment="Top" Width="129" Click="Draw_Line_Click"/>
+        <Button Content="Draw graphics" HorizontalAlignment="Left" Margin="85,246,0,0" VerticalAlignment="Top" Width="129" Click="Draw_Graphics_Click"/>
+        <Button Content="draw pictures" HorizontalAlignment="Left" Margin="85,280,0,0" VerticalAlignment="Top" Width="129" Click="Draw_Image_Click"/>
+        <Label Content="artboard height(mm)" HorizontalAlignment="Left" Margin="43,63,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="PaperHeightTextBox" HorizontalAlignment="Left" Height="23" Margin="131,65,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="PaperHeightTextBox_TextChanged"/>
+        <Label Content="Modifying the artboard height will reset the artboard content" HorizontalAlignment="Left" Margin="256,65,0,0" VerticalAlignment="Top" FontSize="10" Foreground="#FFF90E0E"/>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="439,50,0,0" Height="328" MaxHeight="800" Width="325" VerticalAlignment="Top"
+                      HorizontalAlignment="Center">
+            <Image x:Name="previewImageShow" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Stretch="None" StretchDirection="DownOnly" AllowDrop="True" Width="325"/>
+        </ScrollViewer>
+        <Button Content="Preview" HorizontalAlignment="Left" Margin="574,388,0,0" Width="75" VerticalAlignment="Top" Click="Preview_Image_Click"/>
+    </Grid>
+</Window>
